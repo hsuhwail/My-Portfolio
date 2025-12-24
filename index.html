@@ -3,87 +3,102 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Hamza Suhwail</title>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <title>Hamza Suhwail | Portfolio</title>
     
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
     <style>
-        :root { --gray-50: #f9fafb; --gray-200: #e5e7eb; --gray-400: #9ca3af; --gray-500: #6b7280; --gray-900: #111827; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: white; color: var(--gray-900); -webkit-font-smoothing: antialiased; }
-        
-        /* Layout matching jstautler.fyi */
-        .layout { display: flex; flex-direction: row; max-width: 1000px; margin: 0 auto; padding: 60px 24px; gap: 80px; }
-        
-        /* Sidebar */
-        .sidebar { width: 260px; position: sticky; top: 60px; height: fit-content; }
-        .portrait { width: 120px; height: 120px; border-radius: 8px; margin-bottom: 24px; filter: grayscale(100%); object-fit: cover; }
-        .name { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
-        .email { font-size: 14px; color: var(--gray-500); margin-bottom: 32px; }
-        .label { font-size: 11px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-        .status { font-size: 15px; font-weight: 500; margin-bottom: 48px; }
-        .nav { display: flex; flex-direction: column; gap: 14px; }
-        .nav a { text-decoration: none; color: var(--gray-900); font-weight: 500; font-size: 15px; }
-        .nav a:hover { color: var(--gray-500); }
-
-        /* Main Content */
-        .content { flex: 1; }
-        .section-header { font-size: 11px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; display: flex; align-items: center; }
-        .section-header::after { content: ""; height: 1px; flex: 1; background-color: var(--gray-200); margin-left: 16px; }
-        .item { display: flex; gap: 32px; margin-bottom: 48px; }
-        .date { min-width: 100px; font-size: 14px; color: var(--gray-500); font-variant-numeric: tabular-nums; padding-top: 2px; }
-        .item-title { font-weight: 600; font-size: 16px; margin-bottom: 4px; }
-        .item-desc { font-size: 15px; color: var(--gray-500); line-height: 1.6; }
-
-        @media (max-width: 768px) {
-            .layout { flex-direction: column; padding: 40px 20px; gap: 40px; }
-            .sidebar { width: 100%; position: static; }
+        body { font-family: 'Inter', sans-serif; }
+        /* A soft, welcoming gradient background */
+        .bg-vibrant {
+            background: radial-gradient(circle at top right, #f5f3ff, #ffffff);
+            background-attachment: fixed;
         }
+        .sidebar { position: sticky; top: 3rem; height: fit-content; }
     </style>
 </head>
-<body>
-    <div class="layout">
-        <aside class="sidebar">
-            <img src="https://www.jstautler.fyi/static/media/Portrait.4996489396e9559c558b.JPG" alt="Portrait" class="portrait">
-            <div class="name">Hamza Suhwail</div>
-            <div class="email">hsuhwail@gmail.com</div>
+<body class="antialiased text-slate-900 bg-vibrant selection:bg-indigo-100">
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+        <div class="flex flex-col md:flex-row gap-16 lg:gap-24">
             
-            <div class="label">Currently ↓</div>
-            <div class="status">MSCS Student @ Dakota State University</div>
+            <aside class="sidebar w-full md:w-72 flex-shrink-0">
+                <div class="mb-8">
+                    <div class="relative w-36 h-36 mb-8">
+                        <div class="absolute inset-0 bg-indigo-500 rounded-3xl rotate-6 blur-lg opacity-20"></div>
+                        <div class="relative w-36 h-36 rounded-3xl bg-white p-2 shadow-xl shadow-indigo-100 border border-indigo-50 overflow-hidden">
+                            <img src="profile.jpg" alt="Hamza Suhwail" class="w-full h-full object-cover rounded-2xl transition-transform duration-500 hover:scale-110">
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
+                        Hi, I'm <span class="text-indigo-600">Hamza</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 font-medium mb-8">Building the future of cloud systems.</p>
+                    
+                    <div class="p-5 bg-white rounded-2xl border border-indigo-50 shadow-sm mb-10">
+                        <p class="text-[11px] font-bold uppercase tracking-widest text-indigo-400 mb-2">Currently Exploring ↓</p>
+                        <p class="text-slate-800 font-semibold leading-relaxed">MSCS Student @ Dakota State University</p>
+                    </div>
 
-            <nav class="nav">
-                <a href="#">Resume →</a>
-                <a href="https://linkedin.com/in/hamza-suhwail" target="_blank">LinkedIn</a>
-                <a href="https://github.com/hsuhwail" target="_blank">GitHub</a>
-            </nav>
-        </aside>
-
-        <main class="content">
-            <div class="section-header">Work History</div>
-            
-            <div class="item">
-                <div class="date">6/25 — 8/25</div>
-                <div>
-                    <div class="item-title">Software Engineer Intern</div>
-                    <div class="item-desc">Microsoft • Azure Storage</div>
+                    <nav class="flex flex-col gap-3">
+                        <a href="mailto:hsuhwail@gmail.com" class="flex items-center gap-3 px-4 py-3 bg-indigo-600 text-white rounded-xl font-bold shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all hover:-translate-y-1">
+                            Contact Me <span>→</span>
+                        </a>
+                        <div class="flex gap-4 mt-2 px-2">
+                            <a href="https://linkedin.com/in/hamza-suhwail" target="_blank" class="text-slate-400 hover:text-indigo-600 transition-colors">LinkedIn</a>
+                            <a href="https://github.com/hsuhwail" target="_blank" class="text-slate-400 hover:text-indigo-600 transition-colors">GitHub</a>
+                        </div>
+                    </nav>
                 </div>
-            </div>
+            </aside>
 
-            <div class="item">
-                <div class="date">2024 — Pres.</div>
-                <div>
-                    <div class="item-title">Master's in Computer Science</div>
-                    <div class="item-desc">Dakota State University • Focusing on System Architecture and Engineering.</div>
-                </div>
-            </div>
+            <main class="flex-1">
+                <section class="mb-16">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-4">My Journey</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed max-w-2xl">
+                        I am passionate about creating efficient, scalable software. From internship experiences at 
+                        <span class="text-indigo-600 font-semibold">Microsoft</span> to deep-diving into research, 
+                        I thrive on solving complex technical challenges with a user-first mindset.
+                    </p>
+                </section>
 
-            <div class="section-header">Research</div>
-            <div class="item">
-                <div class="date">Ongoing</div>
-                <div>
-                    <div class="item-title">Research Assistant</div>
-                    <div class="item-desc">Researching distributed systems and cloud scalability.</div>
-                </div>
-            </div>
-        </main>
+                <section class="mb-16">
+                    <div class="flex items-center gap-4 mb-10">
+                        <h2 class="text-[11px] font-bold uppercase tracking-widest text-indigo-400 whitespace-nowrap">Experience</h2>
+                        <div class="h-px w-full bg-indigo-50"></div>
+                    </div>
+
+                    <div class="space-y-10">
+                        <div class="group relative flex flex-col sm:flex-row gap-2 sm:gap-12 p-6 rounded-3xl hover:bg-white hover:shadow-xl hover:shadow-indigo-50 transition-all duration-300 border border-transparent hover:border-indigo-50">
+                            <span class="text-sm font-bold text-indigo-400 tabular-nums w-24 flex-shrink-0">2025</span>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-xl mb-1">Software Engineer Intern</h3>
+                                <p class="text-slate-500 font-medium mb-2">Microsoft • Azure Storage</p>
+                                <p class="text-slate-600 text-sm leading-relaxed">Working on the backbone of cloud storage systems, focusing on performance and reliability at scale.</p>
+                            </div>
+                        </div>
+
+                        <div class="group relative flex flex-col sm:flex-row gap-2 sm:gap-12 p-6 rounded-3xl hover:bg-white hover:shadow-xl hover:shadow-indigo-50 transition-all duration-300 border border-transparent hover:border-indigo-50">
+                            <span class="text-sm font-bold text-indigo-400 tabular-nums w-24 flex-shrink-0">2024</span>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-xl mb-1">MSCS Candidate</h3>
+                                <p class="text-slate-500 font-medium">Dakota State University</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-indigo-900 rounded-[2rem] p-10 text-center text-white shadow-2xl shadow-indigo-200">
+                    <h2 class="text-2xl font-bold mb-4">Let's build something amazing together.</h2>
+                    <p class="text-indigo-200 mb-8 max-w-md mx-auto">I'm always open to discussing new projects, research opportunities, or technical challenges.</p>
+                    <a href="mailto:hsuhwail@gmail.com" class="inline-block bg-white text-indigo-900 px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform">
+                        Get in Touch
+                    </a>
+                </section>
+            </main>
+
+        </div>
     </div>
 </body>
 </html>
