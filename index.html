@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   
   <style>
-    /* EXACT CSS REPLICATION FROM JSTAUTLER.FYI */
+    /* 1:1 REPLICATION STYLES BASED ON ORIGINAL SOURCE */
     :root {
       --gray-200: #e5e7eb;
       --gray-400: #9ca3af;
@@ -24,7 +24,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Main Grid Layout */
+    /* Main Grid Layout - Matches the 1000px container from source */
     .home__container {
       max-width: 1000px;
       margin: 0 auto;
@@ -34,7 +34,7 @@
       gap: 80px;
     }
 
-    /* Sidebar - Sticky Position */
+    /* Sidebar - Properly handles the sticky position */
     .home__left {
       width: 270px;
       position: sticky;
@@ -48,11 +48,11 @@
       border-radius: 8px;
       margin-bottom: 24px;
       object-fit: cover;
-      filter: grayscale(100%); /* Matches original style */
+      filter: grayscale(100%); /* Signature grayscale look from source */
     }
 
     .home__left_title { font-size: 24px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.025em; }
-    .home__left_sub_title { font-size: 14px; color: var(--gray-500); margin-bottom: 32px; display: flex; align-items: center; gap: 8px; }
+    .home__left_sub_title { font-size: 14px; color: var(--gray-500); margin-bottom: 32px; }
     
     .home__left_experience_current_header {
       font-size: 11px; font-weight: 700; color: var(--gray-400);
@@ -68,7 +68,7 @@
     .nav-link:hover { color: var(--gray-500); }
     .home__left_row_nav { display: flex; gap: 16px; margin-top: 4px; }
 
-    /* Content Area */
+    /* Content Area Styles */
     .home__right { flex: 1; }
     
     .home__right_title {
@@ -86,13 +86,14 @@
     .home__right_experience_title { font-weight: 600; font-size: 16px; margin-bottom: 4px; }
     .home__right_experience_desc { font-size: 15px; color: var(--gray-500); line-height: 1.6; }
 
-    /* Tags */
+    /* Tags Styling */
     .home__right_experience_tags_container { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
     .home__right_experience_tag {
       font-size: 12px; padding: 4px 8px; background: #f9fafb; 
       border: 1px solid var(--gray-200); border-radius: 4px; color: var(--gray-500);
     }
 
+    /* Mobile Handling */
     @media (max-width: 768px) {
       .home__container { flex-direction: column; padding: 40px 24px; gap: 40px; }
       .home__left { width: 100%; position: static; }
@@ -103,7 +104,7 @@
 <body>
   <div class="home__container">
     <div class="home__left">
-      <img src="Portrait.JPG" alt="Hamza Suhwail" class="home__left_portrait">
+      <img src="Portrait.JPG" alt="Portrait" class="home__left_portrait">
       <div class="home__left_title">Hamza Suhwail</div>
       <div class="home__left_sub_title">hsuhwail@gmail.com</div>
       
@@ -150,8 +151,8 @@
       <div class="home__right_experience_container">
         <div class="home__right_experience_date">Ongoing</div>
         <div class="home__right_experience_info">
-          <div class="home__right_experience_title">Cloud Scalability</div>
-          <div class="home__right_experience_desc">Developing frameworks for high-performance data distribution.</div>
+          <div class="home__right_experience_title">System Architecture & Scalability</div>
+          <div class="home__right_experience_desc">Researching high-performance data distribution in cloud environments.</div>
         </div>
       </div>
     </div>
