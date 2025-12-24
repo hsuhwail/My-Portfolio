@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hamza Suhwail</title>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    
+    <style>
+        /* This is the CSS extracted from the 30,000 lines, simplified for your use */
+        :root { --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb; --gray-400: #9ca3af; --gray-500: #6b7280; --gray-900: #111827; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: white; color: var(--gray-900); -webkit-font-smoothing: antialiased; }
+        
+        .layout { display: flex; flex-direction: row; max-width: 1000px; margin: 0 auto; padding: 60px 24px; gap: 64px; }
+        
+        /* Left Column Style */
+        .sidebar { width: 280px; position: sticky; top: 60px; height: fit-content; }
+        .portrait { width: 120px; height: 120px; border-radius: 8px; background-color: var(--gray-200); margin-bottom: 24px; filter: grayscale(100%); object-fit: cover; }
+        .name { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+        .email { font-size: 14px; color: var(--gray-500); margin-bottom: 32px; }
+        .label { font-size: 12px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+        .status { font-size: 15px; font-weight: 500; margin-bottom: 40px; }
+        .nav { display: flex; flex-direction: column; gap: 12px; }
+        .nav a { text-decoration: none; color: var(--gray-900); font-weight: 500; font-size: 15px; transition: color 0.2s; }
+        .nav a:hover { color: var(--gray-500); }
+
+        /* Right Column Style */
+        .content { flex: 1; }
+        .section-header { font-size: 12px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; }
+        .section-header::after { content: ""; height: 1px; flex: 1; background-color: var(--gray-200); margin-left: 16px; }
+        .item { display: flex; gap: 24px; margin-bottom: 40px; }
+        .date { min-width: 100px; font-size: 14px; color: var(--gray-500); font-variant-numeric: tabular-nums; }
+        .item-title { font-weight: 600; font-size: 16px; margin-bottom: 4px; }
+        .item-desc { font-size: 15px; color: var(--gray-500); line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            .layout { flex-direction: column; padding: 40px 20px; }
+            .sidebar { width: 100%; position: static; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <img src="https://www.jstautler.fyi/static/media/Portrait.4996489396e9559c558b.JPG" alt="Portrait" class="portrait">
+            <div class="name">Hamza Suhwail</div>
+            <div class="email">hsuhwail@gmail.com</div>
+            
+            <div class="label">Currently ↓</div>
+            <div class="status">MSCS @ Dakota State University</div>
+
+            <nav class="nav">
+                <a href="#">Resume →</a>
+                <a href="https://linkedin.com/in/hamza-suhwail" target="_blank">LinkedIn</a>
+                <a href="https://github.com/hsuhwail" target="_blank">GitHub</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="section-header">Work History</div>
+            
+            <div class="item">
+                <div class="date">6/25 — 8/25</div>
+                <div>
+                    <div class="item-title">Software Engineer Intern</div>
+                    <div class="item-desc">Microsoft • Azure Storage</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="date">2024 — Pres.</div>
+                <div>
+                    <div class="item-title">MSCS Student</div>
+                    <div class="item-desc">Dakota State University • Specializing in Computer Science</div>
+                </div>
+            </div>
+
+            <div class="section-header">Research</div>
+            <div class="item">
+                <div class="date">Ongoing</div>
+                <div>
+                    <div class="item-title">Your Research Topic</div>
+                    <div class="item-desc">Details about your research projects will go here.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
