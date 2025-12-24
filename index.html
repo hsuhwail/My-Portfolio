@@ -1,89 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Hamza Suhwail | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hamza Suhwail</title>
+  
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  <style>
+    /* EXACT REPLICATION STYLES 
+       This replaces the 30k lines by focusing on the core layout rules 
+    */
+    :root {
+      --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+      --gray-400: #9ca3af; --gray-500: #6b7280; --gray-900: #111827;
+    }
+
+    body {
+      margin: 0; padding: 0; font-family: 'Inter', sans-serif;
+      background-color: #fff; color: var(--gray-900);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* The exact container width and spacing from your source file */
+    .home__container {
+      max-width: 1000px; margin: 0 auto;
+      padding: 6rem 1.5rem; display: flex; flex-direction: row; gap: 5rem;
+    }
+
+    /* Sidebar - Sticky as per the original design */
+    .home__left { width: 17rem; position: sticky; top: 6rem; height: fit-content; }
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    .home__left_portrait {
+      width: 7.5rem; height: 7.5rem; border-radius: 0.5rem;
+      background-color: var(--gray-100); margin-bottom: 1.5rem;
+      object-fit: cover; filter: grayscale(100%);
+    }
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .bg-vibrant {
-            background: radial-gradient(circle at top right, #f5f3ff, #ffffff);
-            background-attachment: fixed;
-        }
-        .sidebar { position: sticky; top: 3rem; height: fit-content; }
-    </style>
+    .home__left_title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .home__left_sub_title { font-size: 0.875rem; color: var(--gray-500); margin-bottom: 2rem; }
+    
+    .home__left_experience_current_header {
+      font-size: 0.6875rem; font-weight: 700; color: var(--gray-400);
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;
+    }
+    
+    .home__left_experience_title { font-size: 0.9375rem; font-weight: 500; margin-bottom: 2.5rem; line-height: 1.5; }
+
+    .nav-link { 
+      text-decoration: none; color: var(--gray-900); font-weight: 500; font-size: 0.9375rem; display: block; margin-bottom: 0.75rem;
+    }
+    .nav-link:hover { color: var(--gray-500); }
+    .home__left_row_nav { display: flex; gap: 1rem; margin-top: 0.25rem; }
+
+    /* Content Area Styles */
+    .home__right { flex: 1; }
+    
+    .home__right_title {
+      font-size: 0.6875rem; font-weight: 700; color: var(--gray-400);
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.5rem;
+      display: flex; align-items: center;
+    }
+    .home__right_title hr { flex: 1; border: 0; border-top: 1px solid var(--gray-200); margin-left: 1rem; }
+
+    .home__right_experience_container { display: flex; gap: 2rem; margin-bottom: 2.5rem; }
+    .home__right_experience_date {
+      min-width: 6rem; font-size: 0.875rem; color: var(--gray-500);
+      font-variant-numeric: tabular-nums; padding-top: 0.125rem;
+    }
+    .home__right_experience_title { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; }
+    .home__right_experience_desc { font-size: 0.9375rem; color: var(--gray-500); line-height: 1.6; }
+
+    /* Tags Styling from original */
+    .home__right_experience_tags_container { display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+    .home__right_experience_tag {
+      font-size: 0.75rem; padding: 0.25rem 0.5rem; background: var(--gray-50); 
+      border: 1px solid var(--gray-200); border-radius: 0.25rem; color: var(--gray-500);
+    }
+
+    @media (max-width: 768px) {
+      .home__container { flex-direction: column; padding: 2.5rem 1.25rem; gap: 2.5rem; }
+      .home__left { width: 100%; position: static; }
+    }
+  </style>
 </head>
-<body class="antialiased text-slate-900 bg-vibrant selection:bg-indigo-100">
-    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24">
-        <div class="flex flex-col md:flex-row gap-16 lg:gap-24">
-            
-            <aside class="sidebar w-full md:w-72 flex-shrink-0">
-                <div class="mb-8">
-                    <div class="relative w-36 h-36 mb-8">
-                        <div class="absolute inset-0 bg-indigo-500 rounded-3xl rotate-6 blur-lg opacity-20"></div>
-                        <div class="relative w-36 h-36 rounded-3xl bg-white p-2 shadow-xl shadow-indigo-100 border border-indigo-50 overflow-hidden">
-                            <img src="profile.jpg" alt="Hamza Suhwail" class="w-full h-full object-cover rounded-2xl">
-                        </div>
-                    </div>
-                    
-                    <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 mb-2">Hamza Suhwail</h1>
-                    <p class="text-lg text-slate-600 font-medium mb-8">hsuhwail@gmail.com</p>
-                    
-                    <div class="p-5 bg-white rounded-2xl border border-indigo-50 shadow-sm mb-10">
-                        <p class="text-[11px] font-bold uppercase tracking-widest text-indigo-400 mb-2">Currently ↓</p>
-                        <p class="text-slate-800 font-semibold leading-relaxed">MSCS Student @ Dakota State University</p>
-                    </div>
 
-                    <nav class="flex flex-col gap-3">
-                        <a href="#" class="flex items-center gap-3 px-4 py-3 bg-indigo-600 text-white rounded-xl font-bold shadow-lg hover:bg-indigo-700 transition-all">
-                            Resume <span>→</span>
-                        </a>
-                        <div class="flex gap-4 mt-2 px-2">
-                            <a href="https://linkedin.com/in/hamza-suhwail" target="_blank" class="text-slate-400 hover:text-indigo-600 font-bold transition-colors">LinkedIn</a>
-                            <a href="https://github.com/hsuhwail" target="_blank" class="text-slate-400 hover:text-indigo-600 font-bold transition-colors">GitHub</a>
-                        </div>
-                    </nav>
-                </div>
-            </aside>
+<body>
+  <div class="home__container">
+    <div class="home__left">
+      <img src="profile.jpg" alt="Hamza Suhwail" class="home__left_portrait">
+      <div class="home__left_title">Hamza Suhwail</div>
+      <div class="home__left_sub_title">hsuhwail@gmail.com</div>
+      
+      <div class="home__left_experience_container">
+        <div class="home__left_experience_current_header">Currently ↓</div>
+        <div class="home__left_experience_title">MSCS Student @ Dakota State University</div>
+      </div>
 
-            <main class="flex-1">
-                <section class="mb-16">
-                    <div class="flex items-center gap-4 mb-10">
-                        <h2 class="text-[11px] font-bold uppercase tracking-widest text-indigo-400 whitespace-nowrap">Work History</h2>
-                        <div class="h-px w-full bg-indigo-50"></div>
-                    </div>
-
-                    <div class="space-y-12">
-                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-12">
-                            <span class="text-sm font-bold text-indigo-400 tabular-nums w-24 flex-shrink-0">2025</span>
-                            <div>
-                                <h3 class="font-bold text-slate-900 text-xl">Software Engineer Intern</h3>
-                                <p class="text-slate-500 font-medium">Microsoft • Azure Storage</p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-12">
-                            <span class="text-sm font-bold text-indigo-400 tabular-nums w-24 flex-shrink-0">2024</span>
-                            <div>
-                                <h3 class="font-bold text-slate-900 text-xl">Master's in Computer Science</h3>
-                                <p class="text-slate-500 font-medium">Dakota State University</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="bg-indigo-900 rounded-[2rem] p-10 text-center text-white shadow-2xl">
-                    <h2 class="text-2xl font-bold mb-4">Let's build something amazing together.</h2>
-                    <a href="mailto:hsuhwail@gmail.com" class="inline-block bg-white text-indigo-900 px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform">
-                        Get in Touch
-                    </a>
-                </section>
-            </main>
+      <nav>
+        <a href="#" class="nav-link">Resume →</a>
+        <div class="home__left_row_nav">
+          <a href="https://linkedin.com/in/hamza-suhwail" target="_blank" class="nav-link">LinkedIn</a>
+          <a href="https://github.com/hsuhwail" target="_blank" class="nav-link">GitHub</a>
         </div>
+      </nav>
     </div>
+
+    <div class="home__right">
+      <div class="home__right_title">Work History<hr></div>
+      
+      <div class="home__right_experience_container">
+        <div class="home__right_experience_date">6/25 - 8/25</div>
+        <div class="home__right_experience_info">
+          <div class="home__right_experience_title">Software Engineer Intern @ Microsoft</div>
+          <div class="home__right_experience_desc">Azure Storage</div>
+          <div class="home__right_experience_tags_container">
+            <div class="home__right_experience_tag">Distributed Systems</div>
+            <div class="home__right_experience_tag">RDMA</div>
+            <div class="home__right_experience_tag">C++</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home__right_experience_container">
+        <div class="home__right_experience_date">2024 - Pres.</div>
+        <div class="home__right_experience_info">
+          <div class="home__right_experience_title">Master's in Computer Science</div>
+          <div class="home__right_experience_desc">Dakota State University</div>
+        </div>
+      </div>
+
+      <div class="home__right_title">Research<hr></div>
+      <div class="home__right_experience_container">
+        <div class="home__right_experience_date">Ongoing</div>
+        <div class="home__right_experience_info">
+          <div class="home__right_experience_title">Cloud Scalability</div>
+          <div class="home__right_experience_desc">Developing frameworks for high-performance data distribution.</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
