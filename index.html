@@ -5,23 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hamza Suhwail</title>
 
-  <!-- Inter font to closely match jstautler.fyi -->
+  <!-- Inter: exact minimalist choice -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
     :root {
-      /* Near-identical palette to jstautler.fyi */
-      --bg: #faf7f4;
-      --sidebar: #f1e8df;
-      --accent: #c46a4a;
-      --text: #2c2c2c;
-      --muted: #6b6b6b;
-      --card: #ffffff;
+      /* Near-neutral palette (intentionally muted) */
+      --bg: #f6f5f3;
+      --sidebar: #eceae7;
+      --text: #1f1f1f;
+      --muted: #6a6a6a;
     }
 
     * {
@@ -35,113 +32,103 @@
       color: var(--text);
       display: flex;
       height: 100vh;
-      line-height: 1.6;
+      font-size: 14px; /* intentionally small */
+      line-height: 1.45;
     }
 
-    /* ===== SIDEBAR ===== */
-    .sidebar {
-      width: 300px;
+    /* ===== FIXED SIDEBAR ===== */
+    aside {
+      width: 260px; /* tight, deliberate */
       background: var(--sidebar);
-      padding: 48px 28px;
+      padding: 36px 22px;
       position: fixed;
       inset: 0 auto 0 0;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 18px;
     }
 
-    .profile-pic {
-      width: 160px;
-      height: 160px;
+    .portrait {
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 12px;
     }
 
     .name {
-      font-size: 1.6rem;
       font-weight: 600;
+      font-size: 16px;
+      margin-top: 6px;
     }
 
-    .current {
-      font-size: 0.95rem;
+    .meta {
       color: var(--muted);
     }
 
-    .current strong {
+    .meta strong {
       color: var(--text);
       font-weight: 500;
     }
 
-    .social-links {
+    .links {
       display: flex;
-      gap: 18px;
+      gap: 14px;
       margin-top: auto;
     }
 
-    .social-links a {
-      font-size: 1.35rem;
+    .links a {
       color: var(--text);
-      opacity: 0.8;
-      transition: opacity 0.2s;
+      opacity: 0.75;
+      font-size: 16px;
+      transition: opacity 0.15s;
     }
 
-    .social-links a:hover {
+    .links a:hover {
       opacity: 1;
     }
 
-    /* ===== CONTENT ===== */
-    .content {
-      margin-left: 300px;
-      padding: 56px 64px;
-      width: calc(100% - 300px);
+    /* ===== MAIN CONTENT ===== */
+    main {
+      margin-left: 260px;
+      padding: 48px 56px;
+      width: calc(100% - 260px);
       overflow-y: auto;
     }
 
     section {
-      max-width: 820px;
-      margin-bottom: 56px;
+      max-width: 640px; /* intentionally cramped */
+      margin-bottom: 44px;
     }
 
     h2 {
-      font-size: 1.15rem;
+      font-size: 13px;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin: 0 0 14px 0;
     }
 
-    .item {
-      margin-bottom: 20px;
+    .entry {
+      margin-bottom: 14px;
     }
 
-    .item h3 {
-      margin: 0;
-      font-size: 1rem;
+    .entry-title {
       font-weight: 500;
     }
 
-    .item span {
-      font-size: 0.85rem;
+    .entry-sub {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .entry p {
+      margin: 4px 0 0;
       color: var(--muted);
     }
 
-    .item p {
-      margin: 6px 0 0;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .photos-btn {
-      font-size: 0.95rem;
+    .photos-link {
+      font-size: 13px;
       font-weight: 500;
-      padding: 12px 18px;
-      background: var(--accent);
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-
-    .photos-btn:hover {
-      opacity: 0.9;
+      color: var(--text);
+      text-decoration: underline;
     }
 
     @media (max-width: 900px) {
@@ -149,71 +136,71 @@
         flex-direction: column;
       }
 
-      .sidebar {
+      aside {
         position: relative;
         width: 100%;
       }
 
-      .content {
+      main {
         margin-left: 0;
         width: 100%;
-        padding: 40px 24px;
+        padding: 36px 24px;
       }
     }
   </style>
 </head>
 <body>
 
-  <aside class="sidebar">
-    <img src="portrait.jpg" alt="Profile Picture" class="profile-pic" />
+  <aside>
+    <img src="portrait.jpg" alt="Portrait" class="portrait" />
 
     <div class="name">Hamza Suhwail</div>
 
-    <div class="current">
+    <div class="meta">
       <strong>Graduate Student</strong><br />
       MS Cyber Defense (Technical)<br />
       Aspiring Security Analyst
     </div>
 
-    <div class="social-links">
+    <div class="links">
       <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://music.apple.com/" target="_blank"><i class="fab fa-apple"></i></a>
       <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
     </div>
   </aside>
 
-  <main class="content">
+  <main>
 
     <section>
       <h2>Experience</h2>
-      <div class="item">
-        <h3>Future Care United Kingdom</h3>
-        <span>Web Project</span>
-        <p>Rebuilt company website using HTML and CSS while collaborating with international teams.</p>
+      <div class="entry">
+        <div class="entry-title">Future Care United Kingdom</div>
+        <div class="entry-sub">Web Project</div>
+        <p>Rebuilt organizational website using HTML and CSS in a distributed team.</p>
       </div>
     </section>
 
     <section>
       <h2>Projects</h2>
-      <div class="item">
-        <h3>Wazuh SIEM Detection Labs</h3>
-        <p>Authored custom rules, analyzed logs, and investigated security alerts.</p>
+      <div class="entry">
+        <div class="entry-title">Wazuh SIEM Labs</div>
+        <p>Custom detection rules, log analysis, and alert investigation.</p>
       </div>
-      <div class="item">
-        <h3>Risk Assessment Report</h3>
-        <p>Performed organizational risk identification and mitigation planning.</p>
+      <div class="entry">
+        <div class="entry-title">Risk Assessment</div>
+        <p>Threat modeling and mitigation planning for enterprise scenarios.</p>
       </div>
     </section>
 
     <section>
       <h2>Coursework</h2>
-      <div class="item">
+      <div class="entry">
         <p>Network Security, Incident Response, Digital Forensics, Secure Programming</p>
       </div>
     </section>
 
     <section>
-      <a href="photos.html" class="photos-btn">View Photography</a>
+      <a href="photos.html" class="photos-link">Photography</a>
     </section>
 
   </main>
