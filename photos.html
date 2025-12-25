@@ -3,102 +3,113 @@
     
     body { 
         background-color: #fdfafb; 
-        color: #1a151b; 
         padding: 40px; 
     }
 
-    .gallery-header {
-        max-width: 1400px;
-        margin: 0 auto 50px auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .gallery-header h1 {
-        font-size: 60px;
-        font-weight: 800;
-        color: #3a2456;
-        letter-spacing: -3px;
-    }
-
-    /* --- THE COLUMN LAYOUT (BEST FOR NO CROP) --- */
-    .photo-masonry {
-        column-count: 2; /* 2 Huge columns side-by-side */
-        column-gap: 40px; /* Space between columns */
+    /* --- THE TETRIS CONTAINER --- */
+    .masonry-container {
+        /* This creates the columns for the Tetris effect */
+        columns: 2; 
+        column-gap: 30px;
         max-width: 1400px;
         margin: 0 auto;
     }
 
     .photo-item {
-        break-inside: avoid; /* Prevents photo from splitting between columns */
-        margin-bottom: 40px; /* Space between photos vertically */
+        /* This is the secret: it keeps the item from splitting across columns */
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 30px;
         border-radius: 20px;
         overflow: hidden;
         border: 4px solid #3a2456;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         background: white;
     }
 
     .photo-item:hover {
-        transform: scale(1.02);
+        transform: scale(1.02) translateY(-5px);
+        box-shadow: 0 20px 40px rgba(58, 36, 86, 0.2);
+        z-index: 10;
     }
 
     .photo-item img {
-        width: 100%;    /* Fills the column width */
-        height: auto;   /* Keeps the original photo shape - NO CUTTING */
+        width: 100%;
+        height: auto; /* NO CUTTING - keeps original proportions */
         display: block;
     }
 
-    .photo-caption {
+    .photo-info {
         padding: 20px;
-        font-size: 22px;
-        font-weight: 700;
-        color: #3a2456;
-        text-align: center;
+        background: white;
         border-top: 2px solid #3a2456;
     }
 
-    /* Mobile: Drop to 1 column so they stay big on phones */
-    @media (max-width: 800px) {
-        .photo-masonry { column-count: 1; }
+    .photo-info h3 {
+        font-size: 20px;
+        color: #3a2456;
+        font-weight: 800;
+    }
+
+    /* Responsive: 1 column on smaller screens so they stay HUGE */
+    @media (max-width: 900px) {
+        .masonry-container { column-count: 1; }
     }
 </style>
 
-<header class="gallery-header">
-    <h1>Gallery</h1>
-    <a href="index.html" style="text-decoration:none; color:#3a2456; font-weight:700; border:2px solid #3a2456; padding:10px 20px; border-radius:10px;">← Back</a>
-</header>
-
-<main class="photo-masonry">
+<main class="masonry-container">
     <div class="photo-item">
-        <img src="pics/1.jpeg.jpeg" alt="Shot 1">
-        <div class="photo-caption">Urban Perspectives</div>
+        <img src="pics/1.jpeg.jpeg">
+        <div class="photo-info"><h3>Urban Perspectives</h3></div>
     </div>
 
     <div class="photo-item">
-        <img src="pics/2.jpeg.jpeg" alt="Shot 2">
-        <div class="photo-caption">Cyber Infrastructure</div>
+        <img src="pics/2.jpeg.jpeg">
+        <div class="photo-info"><h3>Cyber Infrastructure</h3></div>
     </div>
 
     <div class="photo-item">
-        <img src="pics/3.jpeg.jpeg" alt="Shot 3">
-        <div class="photo-caption">Night Exposure</div>
+        <img src="pics/3.jpeg.jpeg">
+        <div class="photo-info"><h3>Night Exposure</h3></div>
     </div>
 
     <div class="photo-item">
-        <img src="pics/4.jpeg.jpeg" alt="Shot 4">
-        <div class="photo-caption">Geometric Design</div>
+        <img src="pics/4.jpeg.jpeg">
+        <div class="photo-info"><h3>Geometric Design</h3></div>
     </div>
 
     <div class="photo-item">
-        <img src="pics/5.jpeg.jpeg" alt="Shot 5">
-        <div class="photo-caption">Architectural Lines</div>
+        <img src="pics/5.jpeg.jpeg">
+        <div class="photo-info"><h3>Architectural Lines</h3></div>
     </div>
 
     <div class="photo-item">
-        <img src="pics/6.jpeg.jpeg" alt="Shot 6">
-        <div class="photo-caption">Street Depth</div>
+        <img src="pics/6.jpeg.jpeg">
+        <div class="photo-info"><h3>Street Depth</h3></div>
     </div>
 
-    </main>
+    <div class="photo-item">
+        <img src="pics/7.jpeg.jpeg">
+        <div class="photo-info"><h3>Shot 07</h3></div>
+    </div>
+
+    <div class="photo-item">
+        <img src="pics/8.jpeg.jpeg">
+        <div class="photo-info"><h3>Shot 08</h3></div>
+    </div>
+
+    <div class="photo-item">
+        <img src="pics/9.jpeg.jpeg">
+        <div class="photo-info"><h3>Shot 09</h3></div>
+    </div>
+
+    <div class="photo-item">
+        <img src="pics/10.jpeg.jpeg">
+        <div class="photo-info"><h3>Shot 10</h3></div>
+    </div>
+
+    <div class="photo-item">
+        <img src="pics/11.jpeg.jpeg">
+        <div class="photo-info"><h3>Shot 11</h3></div>
+    </div>
+</main>
