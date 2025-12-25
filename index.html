@@ -162,6 +162,7 @@
             margin-bottom: 40px;
         }
 
+        /* PILL GRID */
         .class-grid {
             display: flex;
             flex-wrap: wrap;
@@ -177,23 +178,22 @@
             font-size: 22px;
         }
 
-        /* PHOTO PREVIEW STYLING */
-        .large-preview-container {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+        /* PHOTO GRID STYLING */
+        .preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 columns side-by-side */
+            gap: 25px;
             margin-top: 50px;
             padding-bottom: 100px;
         }
 
         .large-preview-card {
-            width: 100%;
-            height: 600px;
-            border: 6px solid #3a2456;
-            border-radius: 30px;
+            height: 500px; /* High-impact bold height */
+            border: 5px solid #3a2456;
+            border-radius: 25px;
             overflow: hidden;
             background: #eee;
-            box-shadow: 0 20px 40px rgba(58, 36, 86, 0.1);
+            box-shadow: 0 15px 30px rgba(58, 36, 86, 0.1);
         }
 
         .large-preview-card img {
@@ -203,6 +203,7 @@
             display: block;
         }
 
+        /* FOOTER BUTTON */
         .photo-btn {
             background: #3a2456;
             color: white;
@@ -220,6 +221,12 @@
             transform: translateY(-5px);
         }
 
+        /* Mobile Responsive Grid */
+        @media (max-width: 1000px) {
+            .preview-grid { grid-template-columns: 1fr; }
+        }
+
+        /* CUSTOM SCROLLBAR */
         .main-content::-webkit-scrollbar { width: 15px; }
         .main-content::-webkit-scrollbar-thumb { background: #b194d1; border-radius: 10px; }
     </style>
@@ -346,44 +353,4 @@
             <div class="class-grid">
                 <div class="class-pill">Cybersecurity Governance</div>
                 <div class="class-pill">Data Privacy</div>
-                <div class="class-pill">Managing Security Risks</div>
-                <div class="class-pill">Network Security Monitoring & Intrusion Detection</div>
-                <div class="class-pill">Network & Information Security</div>
-                <div class="class-pill">Information Technology Infrastructure</div>
-                <div class="class-pill">Offensive Security</div>
-                <div class="class-pill">Data Structures</div>
-                <div class="class-pill">Information Technology Cybersecurity</div>
-                <div class="class-pill">Object Oriented Programming</div>
-                <div class="class-pill">Systems Analysis & Design</div>
-            </div>
-        </section>
-
-        <a href="photos.html" class="photo-btn">View Photography →</a>
-        <div id="large-preview-area" class="large-preview-container"></div>
-
-    </main>
-
-    <script>
-        function loadLargePreviews() {
-            const container = document.getElementById('large-preview-area');
-            const total = 11; 
-            const count = 2; 
-            let picked = [];
-
-            while(picked.length < count) {
-                let r = Math.floor(Math.random() * total) + 1;
-                if(!picked.includes(r)) picked.push(r);
-            }
-
-            picked.forEach(num => {
-                container.innerHTML += `
-                    <div class="large-preview-card">
-                        <img src="pics/${num}.jpeg" alt="Featured Work">
-                    </div>`;
-            });
-        }
-        window.onload = loadLargePreviews;
-    </script>
-
-</body>
-</html>
+                <div class="class
