@@ -1,209 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hamza Suhwail</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --warm-bg: #fdfafb;
+            --sidebar-purple: #4a306d;
+            --soft-purple: #9d81ba;
+            --glass-purple: rgba(245, 240, 250, 0.9);
+            --text-dark: #2d232e;
+            --text-light: #6e5f73;
+        }
 
-  <!-- Inter: exact minimalist choice -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Instrument Sans', sans-serif;
+        }
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        body {
+            background-color: var(--warm-bg);
+            color: var(--text-dark);
+            display: flex;
+            height: 100vh;
+            overflow: hidden; /* Keeps the main body from scrolling, only the right side will */
+        }
 
-  <style>
-    :root {
-      /* Near-neutral palette (intentionally muted) */
-      --bg: #f6f5f3;
-      --sidebar: #eceae7;
-      --text: #1f1f1f;
-      --muted: #6a6a6a;
-    }
+        /* --- LEFT SIDE: FIXED --- */
+        .sidebar {
+            width: 380px;
+            height: 100vh;
+            background: var(--sidebar-purple);
+            color: white;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 10;
+        }
 
-    * {
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+        .portrait {
+            width: 110px;
+            height: 110px;
+            border-radius: 24px;
+            object-fit: cover;
+            border: 2px solid var(--soft-purple);
+            margin-bottom: 24px;
+        }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      height: 100vh;
-      font-size: 14px; /* intentionally small */
-      line-height: 1.45;
-    }
+        .name-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+        }
 
-    /* ===== FIXED SIDEBAR ===== */
-    aside {
-      width: 260px; /* tight, deliberate */
-      background: var(--sidebar);
-      padding: 36px 22px;
-      position: fixed;
-      inset: 0 auto 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
+        .currently-section h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--soft-purple);
+            margin-bottom: 15px;
+        }
 
-    .portrait {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
+        .currently-section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #eee;
+        }
 
-    .name {
-      font-weight: 600;
-      font-size: 16px;
-      margin-top: 6px;
-    }
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
 
-    .meta {
-      color: var(--muted);
-    }
+        .social-icons a {
+            color: white;
+            font-size: 1.4rem;
+            transition: 0.3s;
+        }
 
-    .meta strong {
-      color: var(--text);
-      font-weight: 500;
-    }
+        .social-icons a:hover {
+            color: var(--soft-purple);
+            transform: translateY(-3px);
+        }
 
-    .links {
-      display: flex;
-      gap: 14px;
-      margin-top: auto;
-    }
+        /* --- RIGHT SIDE: SCROLLABLE --- */
+        .main-content {
+            margin-left: 380px; /* Same as sidebar width */
+            flex: 1;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 100px 80px;
+            scroll-behavior: smooth;
+        }
 
-    .links a {
-      color: var(--text);
-      opacity: 0.75;
-      font-size: 16px;
-      transition: opacity 0.15s;
-    }
+        section {
+            max-width: 800px;
+            margin-bottom: 100px;
+        }
 
-    .links a:hover {
-      opacity: 1;
-    }
+        .section-tag {
+            font-weight: 600;
+            color: var(--soft-purple);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 20px;
+        }
 
-    /* ===== MAIN CONTENT ===== */
-    main {
-      margin-left: 260px;
-      padding: 48px 56px;
-      width: calc(100% - 260px);
-      overflow-y: auto;
-    }
+        .work-item, .project-item {
+            margin-bottom: 40px;
+        }
 
-    section {
-      max-width: 640px; /* intentionally cramped */
-      margin-bottom: 44px;
-    }
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
 
-    h2 {
-      font-size: 13px;
-      font-weight: 600;
-      margin: 0 0 14px 0;
-    }
+        .sub-info {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: block;
+        }
 
-    .entry {
-      margin-bottom: 14px;
-    }
+        .description {
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
 
-    .entry-title {
-      font-weight: 500;
-    }
+        /* Class Grid */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
 
-    .entry-sub {
-      color: var(--muted);
-      font-size: 13px;
-    }
+        .class-pill {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #efe8f5;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
 
-    .entry p {
-      margin: 4px 0 0;
-      color: var(--muted);
-    }
+        /* Photography Button */
+        .photo-btn-container {
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+            padding-top: 50px;
+        }
 
-    .photos-link {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-      text-decoration: underline;
-    }
+        .photo-btn {
+            background: var(--sidebar-purple);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
 
-    @media (max-width: 900px) {
-      body {
-        flex-direction: column;
-      }
+        .photo-btn:hover {
+            background: var(--soft-purple);
+            transform: scale(1.02);
+        }
 
-      aside {
-        position: relative;
-        width: 100%;
-      }
-
-      main {
-        margin-left: 0;
-        width: 100%;
-        padding: 36px 24px;
-      }
-    }
-  </style>
+        /* Responsive */
+        @media (max-width: 900px) {
+            body { overflow-y: auto; flex-direction: column; }
+            .sidebar { position: relative; width: 100%; height: auto; }
+            .main-content { margin-left: 0; height: auto; padding: 60px 30px; }
+        }
+    </style>
 </head>
 <body>
 
-  <aside>
-    <img src="portrait.jpg" alt="Portrait" class="portrait" />
+    <aside class="sidebar">
+        <div>
+            <img src="portrait.jpg" alt="Your Portrait" class="portrait">
+            <h1 class="name-title">Your<br>Name</h1>
+            
+            <div class="currently-section">
+                <h3>Currently</h3>
+                <p><i class="fas fa-university"></i> Senior at University Name</p>
+                <p><i class="fas fa-laptop-code"></i> Engineering Intern at TechCo</p>
+            </div>
+        </div>
 
-    <div class="name">Hamza Suhwail</div>
+        <div class="social-icons">
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://music.apple.com" target="_blank"><i class="fab fa-apple"></i></a>
+        </div>
+    </aside>
 
-    <div class="meta">
-      <strong>Graduate Student</strong><br />
-      MS Cyber Defense (Technical)<br />
-      Aspiring Security Analyst
-    </div>
+    <main class="main-content">
+        <section id="work">
+            <span class="section-tag">Previous Experience</span>
+            <div class="work-item">
+                <h2>Software Engineering Intern</h2>
+                <span class="sub-info">Company Name • Summer 2024</span>
+                <p class="description">Developing internal tools and optimizing API performance using Node.js and AWS. Collaborating with cross-functional teams to deliver scalable features.</p>
+            </div>
+            <div class="work-item">
+                <h2>Product Designer</h2>
+                <span class="sub-info">Freelance • 2023</span>
+                <p class="description">Creating user-centric interfaces for local startups, focusing on clean aesthetics and intuitive navigation.</p>
+            </div>
+        </section>
 
-    <div class="links">
-      <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://music.apple.com/" target="_blank"><i class="fab fa-apple"></i></a>
-      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-    </div>
-  </aside>
+        <section id="projects">
+            <span class="section-tag">Class Projects</span>
+            <div class="project-item">
+                <h2>Distributed Systems Lab</h2>
+                <p class="description">Built a fault-tolerant key-value store in Go, implementing the Raft consensus algorithm for consistency.</p>
+            </div>
+            <div class="project-item">
+                <h2>Neural Style Transfer</h2>
+                <p class="description">Developed a Python application that applies artistic styles to user-uploaded images using Deep Learning.</p>
+            </div>
+        </section>
 
-  <main>
+        <section id="classes">
+            <span class="section-tag">Classes Taken</span>
+            <div class="class-grid">
+                <div class="class-pill">Data Structures</div>
+                <div class="class-pill">Operating Systems</div>
+                <div class="class-pill">UI/UX Design</div>
+                <div class="class-pill">Algorithms</div>
+                <div class="class-pill">Database Systems</div>
+                <div class="class-pill">Computer Vision</div>
+            </div>
+        </section>
 
-    <section>
-      <h2>Experience</h2>
-      <div class="entry">
-        <div class="entry-title">Future Care United Kingdom</div>
-        <div class="entry-sub">Web Project</div>
-        <p>Rebuilt organizational website using HTML and CSS in a distributed team.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
-      <div class="entry">
-        <div class="entry-title">Wazuh SIEM Labs</div>
-        <p>Custom detection rules, log analysis, and alert investigation.</p>
-      </div>
-      <div class="entry">
-        <div class="entry-title">Risk Assessment</div>
-        <p>Threat modeling and mitigation planning for enterprise scenarios.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Coursework</h2>
-      <div class="entry">
-        <p>Network Security, Incident Response, Digital Forensics, Secure Programming</p>
-      </div>
-    </section>
-
-    <section>
-      <a href="photos.html" class="photos-link">Photography</a>
-    </section>
-
-  </main>
+        <div class="photo-btn-container">
+            <a href="photos.html" class="photo-btn">
+                View My Photography <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
 
 </body>
 </html>
