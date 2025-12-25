@@ -15,48 +15,44 @@
         
         body { 
             background-color: #fcf9ff; 
-            padding: 40px; 
+            padding: 20px; /* Reduced for mobile comfort */
         }
 
         /* --- HEADER --- */
         .gallery-header {
             text-align: center;
-            padding: 80px 20px 60px 20px;
+            padding: 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .gallery-header h1 {
-            font-size: 90px;
+            font-size: clamp(40px, 8vw, 90px); /* Fluid size for mobile/desktop */
             font-weight: 800;
             letter-spacing: -4px;
             color: #3a2456;
             text-transform: uppercase;
-            line-height: 0.8;
+            line-height: 0.9;
             margin-bottom: 15px;
         }
 
         .name-subtitle {
-            font-size: 32px;
+            font-size: clamp(18px, 4vw, 32px);
             font-weight: 400;
             color: #7d61a8;
             letter-spacing: 2px;
-        }
-
-        .back-btn-container {
-            margin-top: 35px;
         }
 
         .back-home {
             text-decoration: none;
             color: #7d61a8;
             font-weight: 700;
-            font-size: 18px;
             border: 2px solid #7d61a8;
             padding: 12px 30px;
             border-radius: 50px;
             transition: 0.3s;
             display: inline-block;
+            margin-top: 30px;
         }
 
         .back-home:hover {
@@ -64,17 +60,19 @@
             color: white;
         }
 
-        /* --- MASONRY GRID --- */
+        /* --- THE FIXED MASONRY GRID --- */
         .masonry-container {
-            column-count: 4;
+            /* This tells the browser: "Try to make columns 350px wide, 
+               but fit as many as you can." This is more stable than column-count alone. */
+            column-width: 350px; 
             column-gap: 20px;
             max-width: 1600px;
-            margin: 40px auto;
+            margin: 20px auto;
+            padding: 0 10px;
         }
 
-        /* --- FADE-IN ANIMATION CLASSES --- */
         .photo-item {
-            display: inline-block;
+            display: inline-block; /* Essential for masonry */
             width: 100%;
             margin-bottom: 20px;
             border-radius: 15px;
@@ -83,21 +81,19 @@
             position: relative;
             background: #3a2456;
             
-            /* Initial state for the fade */
+            /* CRITICAL FIX: Prevents photos from breaking across columns */
+            break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            
+            /* Animation setup */
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        /* When the JS detects the scroll, this class is added */
         .photo-item.reveal {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        .photo-item:hover {
-            transform: scale(1.02); /* Slight lift on hover */
-            z-index: 2;
         }
 
         .photo-item img {
@@ -129,10 +125,6 @@
             font-size: 20px;
             font-weight: 800;
         }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1200px) { .masonry-container { column-count: 2; } .gallery-header h1 { font-size: 60px; } }
-        @media (max-width: 600px) { .masonry-container { column-count: 1; } .gallery-header h1 { font-size: 40px; } }
     </style>
 </head>
 <body>
@@ -140,9 +132,7 @@
     <header class="gallery-header">
         <h1>Photo Collection</h1>
         <div class="name-subtitle">Hamza Suhwail</div>
-        <div class="back-btn-container">
-            <a href="index.html" class="back-home">← Back to Portfolio</a>
-        </div>
+        <a href="index.html" class="back-home">← Back to Portfolio</a>
     </header>
 
     <main class="masonry-container">
@@ -169,24 +159,18 @@
     </main>
 
     <script>
-        /* --- FADE-IN ON SCROLL SCRIPT --- */
-        const observerOptions = {
-            threshold: 0.1 // Reveal when 10% of the image is visible
-        };
-
+        // Intersection Observer for Smooth Fade-In
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('reveal');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        // Apply the observer to every photo item
         document.querySelectorAll('.photo-item').forEach(item => {
             observer.observe(item);
         });
     </script>
-
 </body>
 </html>
