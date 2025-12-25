@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+}
+
+/* LEFT SIDE */
+.sidebar {
+    width: 35%;
+    background-color: #fff;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid #ddd;
+    position: fixed; /* Keeps it still */
+    height: 100vh;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+}
+
+.currently {
+    margin: 2rem 0;
+}
+
+.currently h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin-right: 1.5rem;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #007aff; /* Apple/LinkedIn Blue */
+}
+
+/* RIGHT SIDE */
+.content {
+    margin-left: 35%; /* Same as sidebar width */
+    width: 65%;
+    padding: 4rem;
+    overflow-y: auto; /* Enables scrolling */
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+h2 {
+    border-bottom: 2px solid #007aff;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #007aff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+    .sidebar { position: relative; width: 100%; height: auto; }
+    .content { margin-left: 0; width: 100%; }
+}
