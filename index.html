@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
             --warm-bg: #fdfafb;
-            --sidebar-purple: #4a306d;
-            --soft-purple: #9d81ba;
-            --glass-purple: rgba(245, 240, 250, 0.9);
-            --text-dark: #2d232e;
-            --text-light: #6e5f73;
+            --sidebar-purple: #3a2456; /* Deepened for better contrast */
+            --soft-purple: #b194d1;
+            --text-dark: #1a151b;
+            --text-light: #5d5061;
         }
 
         * {
@@ -29,167 +28,159 @@
             color: var(--text-dark);
             display: flex;
             height: 100vh;
-            overflow: hidden; /* Keeps the main body from scrolling, only the right side will */
+            overflow: hidden; 
         }
 
-        /* --- LEFT SIDE: FIXED --- */
+        /* --- LEFT SIDE: FIXED (Widened for the 400px image) --- */
         .sidebar {
-            width: 380px;
+            width: 500px; 
             height: 100vh;
             background: var(--sidebar-purple);
             color: white;
-            padding: 60px 40px;
+            padding: 50px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: fixed;
             left: 0;
             top: 0;
-            z-index: 10;
         }
 
         .portrait {
             width: 400px;
             height: 340px;
-            border-radius: 24px;
             object-fit: cover;
-            border: 2px solid var(--soft-purple);
-            margin-bottom: 24px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .name-title {
-            font-size: 2.5rem;
+            font-size: 3.5rem; /* Large Bold Font */
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1;
             margin-bottom: 40px;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
         }
 
         .currently-section h3 {
-            font-size: 0.75rem;
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--soft-purple);
             margin-bottom: 15px;
         }
 
         .currently-section p {
-            font-size: 1rem;
+            font-size: 1.25rem; /* Larger Text */
             line-height: 1.6;
-            margin-bottom: 10px;
-            color: #eee;
+            margin-bottom: 12px;
+            color: #f0f0f0;
         }
 
         .social-icons {
             display: flex;
-            gap: 20px;
+            gap: 25px;
+            margin-top: 30px;
         }
 
         .social-icons a {
             color: white;
-            font-size: 1.4rem;
+            font-size: 2rem; /* Big Icons */
             transition: 0.3s;
         }
 
         .social-icons a:hover {
             color: var(--soft-purple);
-            transform: translateY(-3px);
+            transform: scale(1.1);
         }
 
         /* --- RIGHT SIDE: SCROLLABLE --- */
         .main-content {
-            margin-left: 380px; /* Same as sidebar width */
+            margin-left: 500px;
             flex: 1;
             height: 100vh;
             overflow-y: auto;
             padding: 100px 80px;
-            scroll-behavior: smooth;
         }
 
         section {
-            max-width: 800px;
-            margin-bottom: 100px;
+            max-width: 900px;
+            margin-bottom: 120px;
         }
 
         .section-tag {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--soft-purple);
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
             display: block;
-            margin-bottom: 20px;
-        }
-
-        .work-item, .project-item {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-size: 2.5rem; /* Larger Section Headers */
+            margin-bottom: 15px;
+            letter-spacing: -1px;
         }
 
         .sub-info {
             color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
             display: block;
+            font-weight: 600;
         }
 
         .description {
-            line-height: 1.7;
+            font-size: 1.3rem; /* Larger Body Text */
+            line-height: 1.6;
             color: var(--text-dark);
+            margin-bottom: 50px;
         }
 
         /* Class Grid */
         .class-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
 
         .class-pill {
             background: white;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid #efe8f5;
-            font-weight: 600;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #eee;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: center;
         }
 
         /* Photography Button */
-        .photo-btn-container {
-            margin-top: 50px;
-            border-top: 1px solid #eee;
-            padding-top: 50px;
-        }
-
         .photo-btn {
             background: var(--sidebar-purple);
             color: white;
-            padding: 20px 40px;
-            border-radius: 50px;
+            padding: 25px 50px;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 800;
+            font-size: 1.4rem;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             transition: 0.3s;
+            margin-bottom: 100px;
         }
 
         .photo-btn:hover {
             background: var(--soft-purple);
-            transform: scale(1.02);
+            transform: translateY(-5px);
         }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            body { overflow-y: auto; flex-direction: column; }
-            .sidebar { position: relative; width: 100%; height: auto; }
-            .main-content { margin-left: 0; height: auto; padding: 60px 30px; }
-        }
+        /* Custom Scrollbar */
+        .main-content::-webkit-scrollbar { width: 10px; }
+        .main-content::-webkit-scrollbar-thumb { background: var(--soft-purple); border-radius: 10px; }
     </style>
 </head>
 <body>
@@ -197,66 +188,54 @@
     <aside class="sidebar">
         <div>
             <img src="portrait.jpg" alt="Your Portrait" class="portrait">
-            <h1 class="name-title">Your<br>Name</h1>
+            <h1 class="name-title">Your Name</h1>
             
             <div class="currently-section">
                 <h3>Currently</h3>
                 <p><i class="fas fa-university"></i> Senior at University Name</p>
-                <p><i class="fas fa-laptop-code"></i> Engineering Intern at TechCo</p>
+                <p><i class="fas fa-briefcase"></i> Interning at Company</p>
             </div>
         </div>
 
         <div class="social-icons">
-            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://music.apple.com" target="_blank"><i class="fab fa-apple"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-apple"></i></a>
         </div>
     </aside>
 
     <main class="main-content">
         <section id="work">
-            <span class="section-tag">Previous Experience</span>
+            <span class="section-tag">Experience</span>
             <div class="work-item">
-                <h2>Software Engineering Intern</h2>
-                <span class="sub-info">Company Name • Summer 2024</span>
-                <p class="description">Developing internal tools and optimizing API performance using Node.js and AWS. Collaborating with cross-functional teams to deliver scalable features.</p>
-            </div>
-            <div class="work-item">
-                <h2>Product Designer</h2>
-                <span class="sub-info">Freelance • 2023</span>
-                <p class="description">Creating user-centric interfaces for local startups, focusing on clean aesthetics and intuitive navigation.</p>
+                <h2>Work Experience Heading</h2>
+                <span class="sub-info">Company • 2024</span>
+                <p class="description">This text is now much larger and easier to read. You can describe your roles and responsibilities here in detail.</p>
             </div>
         </section>
 
         <section id="projects">
-            <span class="section-tag">Class Projects</span>
+            <span class="section-tag">Featured Projects</span>
             <div class="project-item">
-                <h2>Distributed Systems Lab</h2>
-                <p class="description">Built a fault-tolerant key-value store in Go, implementing the Raft consensus algorithm for consistency.</p>
-            </div>
-            <div class="project-item">
-                <h2>Neural Style Transfer</h2>
-                <p class="description">Developed a Python application that applies artistic styles to user-uploaded images using Deep Learning.</p>
+                <h2>Project Title Here</h2>
+                <p class="description">Showcase your best class projects. The warm purple accents and large typography make the work stand out.</p>
             </div>
         </section>
 
         <section id="classes">
-            <span class="section-tag">Classes Taken</span>
+            <span class="section-tag">Education</span>
+            <h2>Coursework</h2>
             <div class="class-grid">
                 <div class="class-pill">Data Structures</div>
-                <div class="class-pill">Operating Systems</div>
                 <div class="class-pill">UI/UX Design</div>
-                <div class="class-pill">Algorithms</div>
-                <div class="class-pill">Database Systems</div>
-                <div class="class-pill">Computer Vision</div>
+                <div class="class-pill">Web Systems</div>
+                <div class="class-pill">Machine Learning</div>
             </div>
         </section>
 
-        <div class="photo-btn-container">
-            <a href="photos.html" class="photo-btn">
-                View My Photography <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
+        <a href="photos.html" class="photo-btn">
+            View My Photos <i class="fas fa-arrow-right"></i>
+        </a>
     </main>
 
 </body>
