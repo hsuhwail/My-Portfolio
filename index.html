@@ -16,7 +16,7 @@
         }
 
         body {
-            background-color: #fcf9ff; /* Warmer, softer white */
+            background-color: #fcf9ff; 
             display: flex;
             height: 100vh;
             overflow: hidden; 
@@ -26,7 +26,7 @@
         .sidebar {
             width: 550px; 
             height: 100vh;
-            background: #7d61a8; /* Warm Amethyst Purple */
+            background: #7d61a8; 
             color: white;
             padding: 60px;
             position: fixed;
@@ -34,8 +34,8 @@
             top: 0;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Pulls content toward the top */
-            gap: 40px; /* Space between the upper info and the icons */
+            justify-content: flex-start; 
+            gap: 20px; 
         }
 
         .portrait {
@@ -43,7 +43,7 @@
             height: 340px !important;
             object-fit: cover;
             border-radius: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             border: 4px solid #b194d1;
             display: block;
         }
@@ -58,10 +58,10 @@
         .email-current {
             display: block;
             font-size: 26px;
-            color: #ebdfff; /* Soft light lavender for email */
+            color: #ebdfff; 
             font-weight: 400;
-            margin-top: 35px; /* Added breathing room under name */
-            margin-bottom: 50px;
+            margin-top: 35px; /* Spaced away from name */
+            margin-bottom: 40px;
         }
 
         .currently-section h3 {
@@ -78,16 +78,16 @@
             margin-bottom: 15px;
         }
 
-        /* BIGGER SOCIAL ICONS */
+        /* SOCIAL ICONS: Bigger and Moved Up */
         .social-icons {
             display: flex;
             gap: 40px;
-            margin-top: 20px; /* Moves icons up toward the content */
+            margin-top: 10px; 
         }
 
         .social-icons a {
             color: white;
-            font-size: 55px; /* Increased from 45px */
+            font-size: 55px; 
             text-decoration: none;
             transition: 0.3s;
         }
@@ -114,7 +114,7 @@
             font-size: 60px;
             margin-bottom: 60px;
             letter-spacing: -2px;
-            color: #312645; /* Dark warm purple-gray */
+            color: #312645;
         }
 
         .section-tag {
@@ -144,7 +144,7 @@
         .job-details { flex: 1; }
 
         .job-title {
-            color: #5e4385; /* Warm deep purple */
+            color: #5e4385; 
             font-size: 45px;
             display: block;
             font-weight: 800;
@@ -177,7 +177,7 @@
             background: white;
             padding: 15px 30px;
             border-radius: 12px;
-            border: 3px solid #7d61a8; /* Match warm theme */
+            border: 3px solid #7d61a8;
             font-weight: 700;
             font-size: 22px;
             color: #5e4385;
@@ -208,7 +208,6 @@
             display: block;
         }
 
-        /* FOOTER BUTTON */
         .photo-btn {
             background: #5e4385;
             color: white;
@@ -230,7 +229,6 @@
             .preview-grid { grid-template-columns: 1fr; }
         }
 
-        /* CUSTOM SCROLLBAR */
         .main-content::-webkit-scrollbar { width: 15px; }
         .main-content::-webkit-scrollbar-thumb { background: #b194d1; border-radius: 10px; }
     </style>
@@ -258,6 +256,7 @@
     </aside>
 
     <main class="main-content">
+        
         <section id="experience">
             <span class="section-tag">Experience</span>
             <h2>Work History</h2>
@@ -272,6 +271,7 @@
                         <div class="class-pill">Wazuh</div>
                         <div class="class-pill">Red Hat Linux</div>
                         <div class="class-pill">ServiceNow</div>
+                        <div class="class-pill">Access Control</div>
                     </div>
                 </div>
             </div>
@@ -282,6 +282,11 @@
                     <span class="job-title">DC Integrated Systems</span>
                     <span class="sub-info">Network Engineer</span>
                     <p class="description">Secured network infrastructure by configuring Cisco firewalls, routers, and switches and mitigating Layer 1 vulnerabilities for customers.</p>
+                    <div class="class-grid">
+                        <div class="class-pill">System Hardening</div>
+                        <div class="class-pill">TCP/IP</div>
+                        <div class="class-pill">Layer 1 Management</div>
+                    </div>
                 </div>
             </div>
 
@@ -290,7 +295,11 @@
                 <div class="job-details">
                     <span class="job-title">CBRE</span>
                     <span class="sub-info">Software Engineer Intern</span>
-                    <p class="description">Spearheaded nationwide upgrade, deploying 408 Crestron schedulers and 70 controllers in 10 weeks.</p>
+                    <p class="description">Spearheaded nationwide upgrade, deploying 408 Crestron schedulers and 70 controllers in 10 weeks, 33% faster than expected.</p>
+                    <div class="class-grid">
+                        <div class="class-pill">Documentation</div>
+                        <div class="class-pill">System Implementation</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -304,6 +313,11 @@
                     <span class="job-title">Senior Capstone Project</span>
                     <span class="sub-info">The University of Texas @ Dallas</span>
                     <p class="description">Led an 11-member cross-functional team using Agile methodology to deliver a modernized, publicly accessible website redesign.</p>
+                    <div class="class-grid">
+                        <div class="class-pill">Communication</div>
+                        <div class="class-pill">Leadership</div>
+                        <div class="class-pill">UI Design</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -311,6 +325,7 @@
         <section id="education">
             <span class="section-tag">Education</span>
             <h2>Degrees & Certs</h2>
+            
             <div class="job-entry">
                 <div class="job-time">2025 - 2027</div>
                 <div class="job-details">
@@ -318,10 +333,42 @@
                     <span class="sub-info">MS in Cyber Defense</span>
                 </div>
             </div>
+
+            <div class="job-entry">
+                <div class="job-time">2020 — 2024</div>
+                <div class="job-details">
+                    <span class="job-title">University of Texas at Dallas</span>
+                    <span class="sub-info">BS in Information Technology (Cybersecurity)</span>
+                </div>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-time">CERTS</div>
+                <div class="job-details">
+                    <p class="description">CompTIA Security+ SY0-701<br>CompTIA CySA+</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <span class="section-tag">Knowledge</span>
+            <h2>Classes Taken</h2>
+            <div class="class-grid">
+                <div class="class-pill">Cybersecurity Governance</div>
+                <div class="class-pill">Data Privacy</div>
+                <div class="class-pill">Managing Security Risks</div>
+                <div class="class-pill">Network Security Monitoring & Intrusion Detection</div>
+                <div class="class-pill">Network & Information Security</div>
+                <div class="class-pill">Information Technology Infrastructure</div>
+                <div class="class-pill">Offensive Security</div>
+                <div class="class-pill">Data Structures</div>
+                <div class="class-pill">Information Technology Cybersecurity</div>
+                <div class="class-pill">Object Oriented Programming</div>
+                <div class="class-pill">Systems Analysis & Design</div>
+            </div>
         </section>
 
         <a href="photos.html" class="photo-btn">View Photography →</a>
-        
         <div id="preview-grid" class="preview-grid"></div>
 
     </main>
@@ -329,6 +376,8 @@
     <script>
         function loadPreviews() {
             const container = document.getElementById('preview-grid');
+            if(!container) return;
+            
             const totalPhotos = 11;
             const count = 4;
             let picked = [];
@@ -339,13 +388,13 @@
             }
 
             picked.forEach(num => {
-                container.innerHTML += `
-                    <div class="large-preview-card">
-                        <img src="pics/${num}.jpeg" alt="Random Feature">
-                    </div>`;
+                const card = document.createElement('div');
+                card.className = 'large-preview-card';
+                card.innerHTML = `<img src="pics/${num}.jpeg" alt="Featured Photo">`;
+                container.appendChild(card);
             });
         }
-        window.onload = loadPreviews;
+        window.addEventListener('DOMContentLoaded', loadPreviews);
     </script>
 
 </body>
