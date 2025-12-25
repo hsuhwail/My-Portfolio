@@ -5,20 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photography | Hamza Suhwail</title>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Instrument Sans', sans-serif;
-        }
-
-        body {
-            background-color: #fdfafb;
-            color: #1a151b;
-            padding: 60px;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Instrument Sans', sans-serif; }
+        
+        body { 
+            background-color: #fdfafb; 
+            color: #1a151b; 
+            padding: 40px;
+            overflow-x: hidden;
         }
 
         /* --- HEADER --- */
@@ -26,137 +21,151 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 80px;
+            margin-bottom: 50px;
+            padding: 0 10px;
         }
 
         .gallery-header h1 {
-            font-size: 70px;
+            font-size: 50px;
             font-weight: 800;
-            letter-spacing: -3px;
+            letter-spacing: -2px;
             color: #3a2456;
         }
 
         .back-home {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
             text-decoration: none;
             color: #3a2456;
-            border: 3px solid #3a2456;
-            padding: 15px 30px;
-            border-radius: 12px;
+            border: 2px solid #3a2456;
+            padding: 10px 25px;
+            border-radius: 50px;
             transition: 0.3s;
         }
 
-        .back-home:hover {
-            background: #3a2456;
-            color: white;
-        }
+        .back-home:hover { background: #3a2456; color: white; }
 
-        /* --- PHOTO GRID --- */
-        .photo-container {
-            columns: 2; /* Creates two vertical columns */
-            column-gap: 30px;
-        }
-
-        /* Responsive: 1 column on smaller screens */
-        @media (max-width: 1000px) {
-            .photo-container { columns: 1; }
+        /* --- CRAFTY MASONRY GRID --- */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-auto-rows: 200px; /* Base height for the "blocks" */
+            grid-auto-flow: dense; /* Fills in gaps automatically */
+            gap: 20px;
         }
 
         .photo-item {
-            break-inside: avoid;
-            margin-bottom: 30px;
-            background: white;
-            border-radius: 25px;
+            position: relative;
+            background: #eee;
+            border-radius: 20px;
             overflow: hidden;
-            border: 4px solid #3a2456;
+            border: 3px solid #3a2456;
             transition: 0.4s ease;
         }
 
+        /* The "Different Sizes" logic */
+        .photo-item.tall { grid-row: span 3; }    /* Extra Tall */
+        .photo-item.wide { grid-column: span 2; } /* Double Width */
+        .photo-item.medium { grid-row: span 2; }  /* Standard Vertical */
+
         .photo-item:hover {
-            transform: translateY(-10px) scale(1.01);
-            box-shadow: 0 30px 60px rgba(58, 36, 86, 0.15);
+            transform: scale(1.02);
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(58, 36, 86, 0.2);
         }
 
         .photo-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover; /* This makes sure photos don't look squished */
             display: block;
         }
 
-        .photo-caption {
-            padding: 25px;
-            font-size: 22px;
+        /* Modern Hidden Captions - Show on Hover */
+        .caption-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(58, 36, 86, 0.8));
+            color: white;
+            padding: 20px;
             font-weight: 700;
-            color: #3a2456;
-            text-align: center;
-            background: white;
+            opacity: 0;
+            transition: 0.3s;
         }
 
-        /* --- CUSTOM SCROLLBAR --- */
-        ::-webkit-scrollbar { width: 12px; }
-        ::-webkit-scrollbar-thumb { background: #b194d1; border-radius: 10px; }
+        .photo-item:hover .caption-overlay { opacity: 1; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .photo-grid { grid-template-columns: 1fr; }
+            .photo-item.wide { grid-column: span 1; }
+        }
     </style>
 </head>
 <body>
 
     <header class="gallery-header">
         <h1>Gallery</h1>
-        <a href="index.html" class="back-home">← Back to Portfolio</a>
+        <a href="index.html" class="back-home">← Back</a>
     </header>
 
-    <main class="photo-container">
-        
-        <div class="photo-item">
-            <img src="1.jpeg.jpeg" alt="Description">
-            <div class="photo-caption">Urban Perspectives</div>
+    <main class="photo-grid">
+        <div class="photo-item tall">
+            <img src="pics/1.jpeg.jpeg">
+            <div class="caption-overlay">Shot 01</div>
+        </div>
+
+        <div class="photo-item wide">
+            <img src="pics/2.jpeg.jpeg">
+            <div class="caption-overlay">Shot 02</div>
         </div>
 
         <div class="photo-item">
-            <img src="2.jpeg.jpeg" alt="Description">
-            <div class="photo-caption">Cyber Infrastructure</div>
+            <img src="pics/3.jpeg.jpeg">
+            <div class="caption-overlay">Shot 03</div>
+        </div>
+
+        <div class="photo-item medium">
+            <img src="pics/4.jpeg.jpeg">
+            <div class="caption-overlay">Shot 04</div>
+        </div>
+
+        <div class="photo-item tall">
+            <img src="pics/5.jpeg.jpeg">
+            <div class="caption-overlay">Shot 05</div>
         </div>
 
         <div class="photo-item">
-            <img src="3.jpeg.jpeg" alt="Description">
-            <div class="photo-caption">Night Exposure</div>
+            <img src="pics/6.jpeg.jpeg">
+            <div class="caption-overlay">Shot 06</div>
+        </div>
+
+        <div class="photo-item wide medium">
+            <img src="pics/7.jpeg.jpeg">
+            <div class="caption-overlay">Shot 07</div>
         </div>
 
         <div class="photo-item">
-            <img src="4.jpeg.jpeg" alt="Description">
-            <div class="photo-caption">Geometric Design</div>
+            <img src="pics/8.jpeg.jpeg">
+            <div class="caption-overlay">Shot 08</div>
         </div>
 
-<div class="photo-item">
-            <img src="5.jpeg.jpeg" alt="Description">
-            <div class="photo-caption">Geometric Design</div>
+        <div class="photo-item tall">
+            <img src="pics/9.jpeg.jpeg">
+            <div class="caption-overlay">Shot 09</div>
         </div>
 
-<div class="photo-item">
-            <img src="7.jpeg.jpeg" alt="Description">
-            <div class="photo-caption">Geometric Design</div>
+        <div class="photo-item wide">
+            <img src="pics/10.jpeg.jpeg">
+            <div class="caption-overlay">Shot 10</div>
         </div>
 
-<div class="photo-item">
-            <img src="8.jpeg.jpeg" alt="Description">
-            <div class="photo-caption">Geometric Design</div>
+        <div class="photo-item">
+            <img src="pics/11.jpeg.jpeg">
+            <div class="caption-overlay">Shot 11</div>
         </div>
-
-<div class="photo-item">
-            <img src="9.jpeg.jpeg" alt="Description">
-            <div class="photo-caption">Geometric Design</div>
-        </div>
-
-<div class="photo-item">
-            <img src="10.jpeg.jpeg" alt="Description">
-            <div class="photo-caption">Geometric Design</div>
-        </div>
-
-<div class="photo-item">
-            <img src="11.jpeg.jpeg" alt="Description">
-            <div class="photo-caption">Geometric Design</div>
-        </div>
-
 
     </main>
 
