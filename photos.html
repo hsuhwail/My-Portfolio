@@ -3,114 +3,148 @@
     
     body { 
         background-color: #fdfafb; 
-        padding: 40px; 
+        padding: 20px; /* Minimal padding for a "wall" effect */
     }
 
-    /* --- THE TETRIS CONTAINER --- */
+    .gallery-header {
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    .gallery-header h1 {
+        font-size: 40px;
+        color: #3a2456;
+        margin-bottom: 20px;
+    }
+
+    /* --- THE FULL PAGE MASONRY --- */
     .masonry-container {
-        /* This creates the columns for the Tetris effect */
-        columns: 2; 
-        column-gap: 30px;
-        max-width: 1400px;
+        column-count: 4; /* Spread across 4 columns for the whole page */
+        column-gap: 15px; /* Tighter gaps for a "tiled" look */
+        width: 100%;    /* Take up full width */
+        max-width: 2500px; /* Optional: prevents it from stretching too far on giant TVs */
         margin: 0 auto;
     }
 
     .photo-item {
-        /* This is the secret: it keeps the item from splitting across columns */
         display: inline-block;
         width: 100%;
-        margin-bottom: 30px;
-        border-radius: 20px;
+        margin-bottom: 15px; /* Match the column gap */
+        border-radius: 12px;
         overflow: hidden;
-        border: 4px solid #3a2456;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        background: white;
+        border: 3px solid #3a2456;
+        position: relative;
+        transition: transform 0.3s ease;
+        background: #3a2456;
     }
 
     .photo-item:hover {
-        transform: scale(1.02) translateY(-5px);
-        box-shadow: 0 20px 40px rgba(58, 36, 86, 0.2);
+        transform: scale(1.03);
         z-index: 10;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
 
     .photo-item img {
         width: 100%;
-        height: auto; /* NO CUTTING - keeps original proportions */
+        height: auto;
         display: block;
     }
 
-    .photo-info {
-        padding: 20px;
-        background: white;
-        border-top: 2px solid #3a2456;
+    .photo-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(58, 36, 86, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
 
-    .photo-info h3 {
-        font-size: 20px;
-        color: #3a2456;
+    .photo-item:hover .photo-overlay {
+        opacity: 1;
+    }
+
+    .photo-overlay h3 {
+        color: white;
+        font-size: 20px; /* Smaller text to fit smaller boxes */
         font-weight: 800;
+        text-align: center;
+        padding: 10px;
     }
 
-    /* Responsive: 1 column on smaller screens so they stay HUGE */
-    @media (max-width: 900px) {
+    /* --- RESPONSIVE STEPS --- */
+    /* On medium screens (Tablets), show 2 columns */
+    @media (max-width: 1200px) {
+        .masonry-container { column-count: 2; }
+    }
+    /* On small screens (Phones), show 1 column */
+    @media (max-width: 600px) {
         .masonry-container { column-count: 1; }
     }
 </style>
 
+<header class="gallery-header">
+    <h1>Hamza Suhwail | Photography</h1>
+    <a href="index.html" style="text-decoration:none; color:#3a2456; font-weight:700;">← Back to Portfolio</a>
+</header>
+
 <main class="masonry-container">
     <div class="photo-item">
         <img src="pics/1.jpeg.jpeg">
-        <div class="photo-info"></div>
+        <div class="photo-overlay"><h3>Urban Perspectives</h3></div>
     </div>
 
     <div class="photo-item">
         <img src="pics/2.jpeg.jpeg">
-        <div class="photo-info"><h3>Cyber Infrastructure</h3></div>
+        <div class="photo-overlay"><h3>Cyber Infrastructure</h3></div>
     </div>
 
     <div class="photo-item">
         <img src="pics/3.jpeg.jpeg">
-        <div class="photo-info"><h3>Night Exposure</h3></div>
+        <div class="photo-overlay"><h3>Night Exposure</h3></div>
     </div>
 
     <div class="photo-item">
         <img src="pics/4.jpeg.jpeg">
-        <div class="photo-info"><h3>Geometric Design</h3></div>
+        <div class="photo-overlay"><h3>Geometric Design</h3></div>
     </div>
 
     <div class="photo-item">
         <img src="pics/5.jpeg.jpeg">
-        <div class="photo-info"><h3>Architectural Lines</h3></div>
+        <div class="photo-overlay"><h3>Architectural Lines</h3></div>
     </div>
 
     <div class="photo-item">
         <img src="pics/6.jpeg.jpeg">
-        <div class="photo-info"><h3>Street Depth</h3></div>
+        <div class="photo-overlay"><h3>Street Depth</h3></div>
     </div>
 
     <div class="photo-item">
         <img src="pics/7.jpeg.jpeg">
-        <div class="photo-info"><h3>Shot 07</h3></div>
+        <div class="photo-overlay"><h3>Shot 07</h3></div>
     </div>
 
     <div class="photo-item">
         <img src="pics/8.jpeg.jpeg">
-        <div class="photo-info"><h3>Shot 08</h3></div>
+        <div class="photo-overlay"><h3>Shot 08</h3></div>
     </div>
 
     <div class="photo-item">
         <img src="pics/9.jpeg.jpeg">
-        <div class="photo-info"><h3>Shot 09</h3></div>
+        <div class="photo-overlay"><h3>Shot 09</h3></div>
     </div>
 
     <div class="photo-item">
         <img src="pics/10.jpeg.jpeg">
-        <div class="photo-info"><h3>Shot 10</h3></div>
+        <div class="photo-overlay"><h3>Shot 10</h3></div>
     </div>
 
     <div class="photo-item">
         <img src="pics/11.jpeg.jpeg">
-        <div class="photo-info"><h3>Shot 11</h3></div>
+        <div class="photo-overlay"><h3>Shot 11</h3></div>
     </div>
 </main>
-
