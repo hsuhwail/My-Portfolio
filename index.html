@@ -65,40 +65,42 @@
         }
 
         .currently-section h3 {
-            font-size: 20px;
+            font-size: 24px; /* Increased from 20px */
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 5px; /* Slightly more space */
             color: #ebdfff;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .current-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 20px; /* More gap between logo and text */
+            margin-bottom: 25px;
         }
 
         .company-logo {
-            width: 45px;
-            height: 45px;
+            width: 65px; /* Increased from 45px */
+            height: 65px; /* Increased from 45px */
             object-fit: contain;
-            border-radius: 8px;
+            border-radius: 12px;
             background: white;
-            padding: 5px;
-            transition: 0.2s;
+            padding: 8px; /* Slightly more padding for the logo */
+            transition: 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .company-logo:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: scale(1.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border-color: white;
         }
 
         .current-item p {
-            font-size: 24px;
+            font-size: 28px; /* Increased from 24px */
             line-height: 1.2;
+            font-weight: 600; /* Makes the text slightly bolder */
         }
-
         .social-icons {
             display: flex;
             gap: 40px;
