@@ -26,9 +26,9 @@
             overflow-x: hidden; 
         }
 
-        /* --- SIDEBAR UPGRADES --- */
+        /* --- SIDEBAR --- */
         .sidebar {
-            width: 600px; /* Widened slightly to accommodate bigger photo */
+            width: 600px; 
             height: 100vh;
             background: #7d61a8;
             color: white;
@@ -42,7 +42,7 @@
         }
 
         .portrait {
-            width: 440px !important; /* Bigger Photo */
+            width: 440px !important; 
             height: 380px !important;
             object-fit: cover;
             border-radius: 25px;
@@ -66,14 +66,14 @@
             margin-top: 10px;
             border-top: 1px solid rgba(235, 223, 255, 0.2);
             padding-top: 30px;
-            flex-grow: 1; /* Pushes social icons down but keeps layout tight */
+            flex-grow: 1;
         }
 
         .sidebar-nav a {
             display: block;
             color: white;
             text-decoration: none;
-            font-size: 26px; /* Bigger Font */
+            font-size: 26px; 
             font-weight: 800;
             margin-bottom: 22px;
             text-transform: uppercase;
@@ -92,13 +92,13 @@
         .social-icons { 
             display: flex; 
             gap: 45px; 
-            margin-top: 20px; /* Moved them up */
+            margin-top: 20px; 
             padding-bottom: 20px; 
         }
         .social-icons a { color: white; font-size: 65px; text-decoration: none; transition: 0.3s; }
         .social-icons a:hover { color: #ebdfff; transform: scale(1.1); }
 
-        /* --- CONTENT SECTION --- */
+        /* --- MAIN CONTENT --- */
         .main-content {
             margin-left: 600px;
             flex: 1;
@@ -118,6 +118,8 @@
         
         .class-grid { display: flex; flex-wrap: wrap; gap: 18px; }
         .class-pill { background: white; padding: 15px 30px; border-radius: 12px; border: 3px solid #7d61a8; font-weight: 700; font-size: 22px; color: #5e4385; }
+
+        .cert-item { display: block; margin-bottom: 15px; font-size: 28px; font-weight: 600; color: #2d232e; }
 
         .photo-feature-box { background: #7d61a8; padding: 60px; border-radius: 40px; margin-top: 50px; }
         .photo-btn { background: white; color: #7d61a8; padding: 25px 50px; border-radius: 20px; text-decoration: none; font-weight: 800; font-size: 32px; display: inline-block; margin-bottom: 50px; }
@@ -145,6 +147,7 @@
                 <a href="#experience">Work History</a>
                 <a href="#academic">Class Projects</a>
                 <a href="#education">Degrees and Certs</a>
+                <a href="#knowledge">Classes Taken</a>
                 <a href="photos.html">Photo Gallery</a>
             </nav>
         </div>
@@ -168,7 +171,14 @@
                     <span class="sub-info">NOC Analyst</span>
                     <p class="description">Supported 24/7 NOC operations by monitoring network health, analyzing incidents on Red Hat Enterprise Linux, and managing incident workflows in ServiceNow.</p>
                     <div class="class-grid">
-                        <div class="class-pill">Wazuh</div><div class="class-pill">RHEL</div><div class="class-pill">ServiceNow</div><div class="class-pill">Incident Response</div>
+                        <div class="class-pill">Wazuh</div>
+                        <div class="class-pill">Red Hat Enterprise Linux</div>
+                        <div class="class-pill">ServiceNow</div>
+                        <div class="class-pill">MobaXterm</div>
+                        <div class="class-pill">Access Control</div>
+                        <div class="class-pill">Networking Fundamentals</div>
+                        <div class="class-pill">Incident Response</div>
+                        <div class="class-pill">NOC</div>
                     </div>
                 </div>
             </div>
@@ -178,9 +188,13 @@
                 <div class="job-details">
                     <span class="job-title">DC Integrated Systems</span>
                     <span class="sub-info">Network Engineer</span>
-                    <p class="description">Secured network infrastructure by configuring a variety of firewalls, routers, and switches and mitigating Layer 1 vulnerabilities.</p>
+                    <p class="description">Secured network infrastructure by configuring a variety of firewalls, routers, and switches and mitigating Layer 1 vulnerabilities for customers.</p>
                     <div class="class-grid">
-                        <div class="class-pill">System Hardening</div><div class="class-pill">TCP/IP</div><div class="class-pill">Firewalls</div>
+                        <div class="class-pill">System Hardening</div>
+                        <div class="class-pill">TCP/IP</div>
+                        <div class="class-pill">Layer 1 Management</div>
+                        <div class="class-pill">CAT 5 / CAT 6</div>
+                        <div class="class-pill">Problem Solving</div>
                     </div>
                 </div>
             </div>
@@ -190,7 +204,13 @@
                 <div class="job-details">
                     <span class="job-title">CBRE</span>
                     <span class="sub-info">Software Engineer Intern</span>
-                    <p class="description">Spearheaded nationwide upgrade, deploying 408 Crestron schedulers and 70 controllers in 10 weeks.</p>
+                    <p class="description">Spearheaded nationwide upgrade, deploying 408 Crestron schedulers and 70 controllers in 10 weeks, 33% faster than expected.</p>
+                    <div class="class-grid">
+                        <div class="class-pill">System Implementation</div>
+                        <div class="class-pill">Crestron</div>
+                        <div class="class-pill">Deployment</div>
+                        <div class="class-pill">Remote Management</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -203,7 +223,12 @@
                 <div class="job-details">
                     <span class="job-title">Senior Capstone Project</span>
                     <span class="sub-info">The University of Texas @ Dallas</span>
-                    <p class="description">Led an 11-member cross-functional team using Agile methodology to deliver a modernized website redesign.</p>
+                    <p class="description">Led an 11-member cross-functional team using Agile methodology to deliver a modernized, publicly accessible website redesign.</p>
+                    <div class="class-grid">
+                        <div class="class-pill">Agile</div>
+                        <div class="class-pill">UI/UX</div>
+                        <div class="class-pill">Accessibility</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -222,14 +247,32 @@
                 <div class="job-time">2020 — 2024</div>
                 <div class="job-details">
                     <span class="job-title">University of Texas at Dallas</span>
-                    <span class="sub-info">BS in IT (Cybersecurity)</span>
+                    <span class="sub-info">BS in Information Technology (Cybersecurity)</span>
                 </div>
             </div>
             <div class="job-entry">
                 <div class="job-time">CERTS</div>
                 <div class="job-details">
-                    <p class="description">CompTIA Security+ SY0-701<br>CompTIA CySA+</p>
+                    <span class="cert-item">CompTIA Security+ SY0-701</span>
+                    <span class="cert-item">CompTIA CySA+</span>
                 </div>
+            </div>
+        </section>
+
+        <section id="knowledge">
+            <span class="section-tag">Knowledge</span>
+            <h2>Classes Taken</h2>
+            <div class="class-grid">
+                <div class="class-pill">Cybersecurity Governance</div>
+                <div class="class-pill">Data Privacy</div>
+                <div class="class-pill">Managing Security Risks</div>
+                <div class="class-pill">Intrusion Detection</div>
+                <div class="class-pill">Network Security</div>
+                <div class="class-pill">IT Infrastructure</div>
+                <div class="class-pill">Offensive Security</div>
+                <div class="class-pill">Data Structures</div>
+                <div class="class-pill">Object Oriented Programming</div>
+                <div class="class-pill">Systems Analysis</div>
             </div>
         </section>
 
@@ -243,7 +286,8 @@
         function loadPreviews() {
             const container = document.getElementById('preview-grid');
             if(!container) return;
-            const picked = [1, 2, 3, 4]; // Simplified for reliability
+            // Picking first 4 images as a preview
+            const picked = [1, 2, 3, 4];
             picked.forEach(num => {
                 const card = document.createElement('div');
                 card.className = 'large-preview-card';
