@@ -9,127 +9,113 @@
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Instrument Sans', sans-serif; }
-        body { background-color: #fcf9ff; display: flex; min-height: 100vh; overflow: hidden; }
 
-        /* --- THE ULTIMATE MACBOOK SIDEBAR FIX --- */
+        body {
+            background-color: #fcf9ff; 
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* --- ORIGINAL SIDEBAR --- */
         .sidebar {
-            width: 500px; /* Slightly narrower to give gallery more room */
+            width: 550px; 
             height: 100vh;
             background: #7d61a8;
             color: white;
-            padding: 30px 50px;
+            padding: 60px;
             position: fixed;
             left: 0;
             top: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* This forces icons to bottom and top group to top */
+            justify-content: flex-start; 
             z-index: 100;
         }
 
-        .sidebar-top-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px; /* Tighter gaps for shorter screens */
-        }
-
         .portrait {
-            width: 100%;
-            max-width: 320px; /* Reduced from 400px to prevent vertical cutoff */
-            height: auto;
-            aspect-ratio: 400/340;
+            width: 400px;
+            height: 340px;
             object-fit: cover;
             border-radius: 20px;
+            margin-bottom: 30px;
             border: 4px solid #b194d1;
-            align-self: center;
+            display: block;
         }
 
-        .name-title { font-size: 60px; font-weight: 800; line-height: 0.9; letter-spacing: -2px; }
+        .name-title { font-size: 80px; font-weight: 800; line-height: 0.9; letter-spacing: -3px; }
         
         .sidebar-nav {
-            margin-top: 20px;
+            margin-top: 50px;
             border-top: 1px solid rgba(235, 223, 255, 0.2);
-            padding-top: 20px;
+            padding-top: 30px;
         }
 
         .sidebar-nav a {
             display: block;
             color: white;
             text-decoration: none;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             transition: 0.3s;
         }
+
         .sidebar-nav a:hover { color: #ebdfff; transform: translateX(10px); }
 
-        .social-icons { 
-            display: flex; 
-            gap: 30px; 
-            padding-top: 20px;
-            border-top: 1px solid rgba(235, 223, 255, 0.1);
-        }
-        .social-icons a { color: white; font-size: 45px; transition: 0.3s; }
-        .social-icons a:hover { color: #ebdfff; transform: scale(1.1); }
+        .social-icons { display: flex; gap: 40px; margin-top: auto; padding-bottom: 20px; }
+        .social-icons a { color: white; font-size: 55px; text-decoration: none; transition: 0.3s; }
 
-        /* --- CONTENT AREA --- */
+        /* --- ORIGINAL CONTENT GRID --- */
         .main-content {
-            margin-left: 500px;
+            margin-left: 550px;
             flex: 1;
-            padding: 60px 80px;
-            height: 100vh;
-            overflow-y: auto; /* Gallery scrolls, sidebar stays */
+            padding: 100px;
         }
 
-        h2 { font-size: 55px; margin-bottom: 10px; color: #312645; }
-        .quote { font-size: 24px; color: #7d61a8; font-weight: 600; margin-bottom: 50px; line-height: 1.4; }
+        h2 { font-size: 60px; margin-bottom: 10px; color: #312645; }
+        .quote { font-size: 28px; color: #7d61a8; font-weight: 600; margin-bottom: 60px; }
 
-        /* --- TETRIS MASONRY GRID --- */
-        .photo-column-grid {
-            column-count: 3;
-            column-gap: 20px;
-            width: 100%;
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
         }
 
         .photo-card {
-            break-inside: avoid;
-            margin-bottom: 20px;
             background: white;
-            border-radius: 15px;
+            border-radius: 30px;
             overflow: hidden;
-            border: 4px solid white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease, transform 1s ease;
+            border: 6px solid white;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.05);
+            opacity: 0; /* For the fade effect */
+            transform: translateY(20px);
+            transition: all 1s ease-out;
         }
 
-        .photo-card.reveal { opacity: 1; transform: translateY(0); }
-        .photo-card img { width: 100%; height: auto; display: block; }
+        .photo-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* Tablet/Mobile Adjustments */
-        @media (max-width: 1400px) { .photo-column-grid { column-count: 2; } }
-        @media (max-width: 1100px) {
-            body { flex-direction: column; overflow-y: auto; }
+        .photo-card img { width: 100%; height: 500px; object-fit: cover; display: block; }
+
+        /* Mobile Breakpoint */
+        @media (max-width: 1200px) {
+            body { flex-direction: column; }
             .sidebar { width: 100%; height: auto; position: relative; padding: 40px 20px; align-items: center; text-align: center; }
-            .main-content { margin-left: 0; padding: 40px 20px; height: auto; }
-            .photo-column-grid { column-count: 2; }
+            .main-content { margin-left: 0; padding: 40px 20px; }
             .sidebar-nav { display: none; }
         }
-        @media (max-width: 700px) { .photo-column-grid { column-count: 1; } }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <div class="sidebar-top-group">
-            <img src="portrait.jpg" class="portrait">
-            <h1 class="name-title">Hamza<br>Suhwail</h1>
-            <nav class="sidebar-nav">
-                <a href="index.html">← Back to Portfolio</a>
-            </nav>
-        </div>
-
+        <img src="portrait.jpg" class="portrait">
+        <h1 class="name-title">Hamza<br>Suhwail</h1>
+        <nav class="sidebar-nav">
+            <a href="index.html">← Back to Portfolio</a>
+        </nav>
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/hamza-suhwail/"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/hsuhwail/"><i class="fab fa-github"></i></a>
@@ -141,38 +127,27 @@
         <h2>Photo Gallery</h2>
         <p class="quote">Exploring new places, cultures, and perspectives, one trip at a time.</p>
 
-        <div id="tetris-grid" class="photo-column-grid">
+        <div id="full-gallery" class="photo-grid">
             </div>
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const container = document.getElementById('tetris-grid');
-            
-            // Loop for exactly 50 photos
-            for (let i = 1; i <= 50; i++) {
+        function loadGallery() {
+            const container = document.getElementById('full-gallery');
+            // Changed this back to 50 for you
+            for(let i = 1; i <= 50; i++) {
                 const card = document.createElement('div');
                 card.className = 'photo-card';
-                
-                // Creates image with your exact naming: pics/1.jpeg.jpeg
-                const img = document.createElement('img');
-                img.src = `pics/${i}.jpeg.jpeg`;
-                img.loading = 'lazy';
-                
-                card.appendChild(img);
+                card.innerHTML = `<img src="pics/${i}.jpeg.jpeg" loading="lazy">`;
                 container.appendChild(card);
+                
+                // Trigger the fade-in effect
+                setTimeout(() => {
+                    card.classList.add('reveal');
+                }, i * 100); 
             }
-
-            // Staggered Fade-in Observer
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        // Slow stagger effect
-                        setTimeout(() => {
-                            entry.target.classList.add('reveal');
-                        }, 150); 
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.photo-card').forEach(c => observer.observe
+        }
+        window.addEventListener('DOMContentLoaded', loadGallery);
+    </script>
+</body>
+</html>
